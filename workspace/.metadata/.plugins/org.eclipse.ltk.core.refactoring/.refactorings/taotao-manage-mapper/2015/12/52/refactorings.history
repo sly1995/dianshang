@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ItemParamItemMapper.java&apos; to &apos;com.taotao.manage.mapper.ItemDescMapper.java&apos;&#x0D;&#x0A;- Original project: &apos;taotao-manage-mapper&apos;&#x0D;&#x0A;- Destination element: &apos;com.taotao.manage.mapper.ItemDescMapper.java&apos;&#x0D;&#x0A;- Original element: &apos;com.taotao.manage.mapper.ItemParamItemMapper.java&apos;" description="Copy compilation unit" destination="/src\/main\/java&lt;com.taotao.manage.mapper{ItemDescMapper.java" element1="/src\/main\/java&lt;com.taotao.manage.mapper{ItemParamItemMapper.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1451010562286" units="1" version="1.0"/>
+</session>

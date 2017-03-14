@@ -1,0 +1,7 @@
+package com.taotao.cart.mapper;
+
+import com.taotao.cart.pojo.Cart;
+
+public interface CartMapper extends Mapper<Cart> {
+
+}

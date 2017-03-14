@@ -1,0 +1,22 @@
+package com.taotao.web.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.service.ApiService;
+import com.taotao.web.bean.User;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private ApiService apiService;
+
+    public User queryUserByToken(String token) {
+
+        String url = "http://sso.taotao.com/service/user/" + token;
+        this.apiService.doGet(url);
+
+    }
+
+}

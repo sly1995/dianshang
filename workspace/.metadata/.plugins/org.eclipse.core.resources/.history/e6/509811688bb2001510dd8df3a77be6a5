@@ -1,0 +1,45 @@
+package com.taotao.cart.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.taotao.cart.bean.User;
+import com.taotao.cart.threadlocal.UserThreadLocal;
+
+@RequestMapping("cart")
+@Controller
+public class CartController {
+
+    /**
+     * 将商品加入到购物车
+     * 
+     * @return
+     */
+    @RequestMapping(value = "{itemId}", method = RequestMethod.GET)
+    public String addItemToCart() {
+        // 判断用户是否登录
+        User user = UserThreadLocal.get();
+        if (user == null) {
+            // 未登录状态
+        } else {
+            // 已登录
+            
+        }
+        return "redirect:/cart/show.html";
+    }
+
+    /**
+     * 显示购物车列表
+     * 
+     * @return
+     */
+    @RequestMapping(value = "show", method = RequestMethod.GET)
+    public ModelAndView showCartList() {
+        ModelAndView mv = new ModelAndView("cart");
+
+        return mv;
+    }
+
+}

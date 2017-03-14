@@ -1,0 +1,42 @@
+package com.taotao.cart.service;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.taotao.cart.pojo.Cart;
+import com.taotao.common.util.CookieUtils;
+
+@Service
+public class CartCookieService {
+
+    public static final String CART_COOKIE_NAME = "TT_CART";
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
+    public void addItemToCart(Long itemId, HttpServletRequest request, HttpServletResponse response) {
+        // 获取到cookie中的cart list
+        String jsonData = CookieUtils.getCookieValue(request, CART_COOKIE_NAME);
+        List<Cart> carts = null;
+        try {
+            carts = MAPPER.readValue(jsonData,
+                    MAPPER.getTypeFactory().constructCollectionType(List.class, Cart.class));
+        } catch (Exception e) {
+            e.printStackTrace();
+            carts = new ArrayList<Cart>();
+        }
+        
+        //判断该商品是否存在购物车中
+        
+
+    }
+
+}

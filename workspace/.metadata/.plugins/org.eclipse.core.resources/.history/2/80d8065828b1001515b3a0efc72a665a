@@ -1,0 +1,34 @@
+package com.taotao.search.mq.handler;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.solr.client.solrj.impl.HttpSolrServer;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class ItemHandler {
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+    
+    @Autowired
+    private HttpSolrServer httpSolrServer;
+
+    public void execute(String msg) {
+        // 删除缓存中的数据
+        try {
+            JsonNode jsonNode = MAPPER.readTree(msg);
+            Long itemId = jsonNode.get("itemId").asLong();
+            String type = jsonNode.get("type").asText();
+            if (StringUtils.equals(type, "insert") || StringUtils.equals(type, "update")) {
+
+            } else if (StringUtils.equals(type, "delete")) {
+                this.httpSolrServer.deleteById(itemId.toString());
+                this.httpSolrServer.commit();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}

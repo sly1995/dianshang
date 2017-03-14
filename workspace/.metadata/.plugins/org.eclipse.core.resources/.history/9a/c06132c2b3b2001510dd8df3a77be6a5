@@ -1,0 +1,49 @@
+package com.taotao.web.service;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.http.client.ClientProtocolException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.taotao.common.service.ApiService;
+import com.taotao.web.bean.Cart;
+import com.taotao.web.threadlocal.UserThreadLocal;
+
+@Service
+public class CartService {
+
+    @Autowired
+    private ApiService apiService;
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
+    public List<Cart> queryCartListByUser() {
+        try {
+            String url = "http://cart.taotao.com/service/cart/" + UserThreadLocal.get().getId();
+            String jsonData = this.apiService.doGet(url);
+            if (null == jsonData) {
+                return null;
+            }
+            return MAPPER.readValue(jsonData,
+                    MAPPER.getTypeFactory().constructCollectionType(List.class, Cart.class));
+        } catch (JsonParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+}

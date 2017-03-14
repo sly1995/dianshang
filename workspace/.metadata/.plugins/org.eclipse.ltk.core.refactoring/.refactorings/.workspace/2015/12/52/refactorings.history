@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 6 resources" deleteContents="true" description="Delete 6 resources" element1="/taotao-manage" element2="/taotao-manage-mapper" element3="/taotao-manage-pojo" element4="/taotao-manage-service" element5="/taotao-manage-web" element6="/taotao-parent" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="6" stamp="1450776503718"/>
+</session>

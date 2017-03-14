@@ -1,0 +1,23 @@
+package com.taotao.search.mq.handler;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.taotao.common.service.RedisService;
+import com.taotao.web.service.ItemService;
+
+public class ItemHandler {
+
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
+    public void execute(String msg) {
+        // 删除缓存中的数据
+        try {
+            JsonNode jsonNode = MAPPER.readTree(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}

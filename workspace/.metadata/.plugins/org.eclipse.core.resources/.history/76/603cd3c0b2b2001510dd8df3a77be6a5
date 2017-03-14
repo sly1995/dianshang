@@ -1,0 +1,21 @@
+package com.taotao.web.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.service.ApiService;
+import com.taotao.web.bean.Cart;
+
+@Service
+public class CartService {
+    
+    @Autowired
+    private ApiService apiService;
+
+    public List<Cart> queryCartListByUser() {
+        return null;
+    }
+
+}

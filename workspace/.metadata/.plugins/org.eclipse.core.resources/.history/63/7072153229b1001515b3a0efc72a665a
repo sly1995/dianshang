@@ -1,0 +1,24 @@
+package com.taotao.search.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.service.ApiService;
+import com.taotao.search.bean.Item;
+
+@Service
+public class ItemService {
+
+    @Autowired
+    private ApiService apiService;
+    
+    @Value("${TAOTAO_MANAGE_URL}")
+    private String TAOTAO_MANAGE_URL;
+
+    public Item queryItemById(Long id) {
+        String url = "/rest/item/1473655354";
+        this.apiService.doGet(url);
+    }
+
+}

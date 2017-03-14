@@ -1,0 +1,15 @@
+package com.taotao.search.service;
+
+import org.apache.zookeeper.KeeperException.APIErrorException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.taotao.common.service.ApiService;
+
+@Service
+public class ItemService {
+    
+    @Autowired
+    private ApiService apiService;
+    
+}

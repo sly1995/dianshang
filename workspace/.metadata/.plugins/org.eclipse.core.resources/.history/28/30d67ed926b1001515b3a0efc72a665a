@@ -1,0 +1,13 @@
+package com.taotao.web.mq.handler;
+
+import com.taotao.web.service.ItemService;
+
+public class ItemHandler {
+
+    public void execute(String msg) {
+        //删除缓存中的数据
+        String key = ItemService.REDIS_KEY + itemId;
+        this.redisService.del(key);
+    }
+
+}

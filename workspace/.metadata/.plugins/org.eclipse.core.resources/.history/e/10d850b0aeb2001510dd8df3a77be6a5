@@ -1,0 +1,15 @@
+package com.taotao.cart.service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CartCookieService {
+
+    public void addItemToCart(Long itemId, HttpServletRequest request, HttpServletResponse response) {
+        
+    }
+
+}
