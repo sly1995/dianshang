@@ -1,2 +1,0 @@
-solr.maxRetries=1
-solr.connectionTimeout=1000

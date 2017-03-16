@@ -1,9 +1,0 @@
-package com.taotao.search.service;
-
-import org.apache.zookeeper.KeeperException.APIErrorException;
-import org.springframework.stereotype.Service;
-
-@Service
-public class ItemService {
-    
-}
